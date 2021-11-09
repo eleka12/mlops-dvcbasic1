@@ -1,0 +1,321 @@
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git init
+Reinitialized existing Git repository in D:/ineuron/full stack/DVC MLOPS steps/DVC start/tut 1/.git/
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>dvc init
+Initialized DVC repository.
+
+You can now commit the changes to git.
+
++---------------------------------------------------------------------+
+|                                                                     |
+|        DVC has enabled anonymous aggregate usage analytics.         |
+|     Read the analytics documentation (and how to opt-out) here:     |
+|             <https://dvc.org/doc/user-guide/analytics>              |
+|                                                                     |
++---------------------------------------------------------------------+
+
+What's next?
+------------
+- Check out the documentation: <https://dvc.org/doc>
+- Get help and share ideas: <https://dvc.org/chat>
+- Star us on GitHub: <https://github.com/iterative/dvc>
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>dvc get https://github.com/iterative/dataset-registry \
+ERROR: interrupted by the user
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>dir
+ Volume in drive D is New Volume
+ Volume Serial Number is AAEC-73DF
+
+ Directory of D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1
+
+09-11-2021  07:54    <DIR>          .
+09-11-2021  07:54    <DIR>          ..
+09-11-2021  07:54    <DIR>          .dvc
+09-11-2021  07:54               142 .dvcignore
+08-11-2021  23:28    <DIR>          data
+               1 File(s)            142 bytes
+               4 Dir(s)  203,298,361,344 bytes free
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>dvc add data/Finall_Raw_data.csv
+←[2K←[32m⠴←[0m Checking graph
+100% Adding...|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|1/1 [00:00,  1.15file/s]
+
+To track the changes with git, run:
+
+        git add 'data\.gitignore' 'data\Finall_Raw_data.csv.dvc'
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git add 'data\.gitignore' 'data\Finall_Raw_data.csv.dvc'
+fatal: pathspec ''data\.gitignore'' did not match any files
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git add '.gitignore' 'data\Finall_Raw_data.csv.dvc'
+fatal: pathspec ''.gitignore'' did not match any files
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git add '\.gitignore' 'data\Finall_Raw_data.csv.dvc'
+fatal: pathspec ''\.gitignore'' did not match any files
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git add 'data\.gitignore' 'data\Finall_Raw_data.csv.dvc'
+fatal: pathspec ''data\.gitignore'' did not match any files
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git add data\.gitignore data\Finall_Raw_data.csv.dvc
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>commit -m "Add new data"
+'commit' is not recognized as an internal or external command,
+operable program or batch file.
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git commit -m "Add new data"
+[master (root-commit) ffc8bd1] Add new data
+ 5 files changed, 11 insertions(+)
+ create mode 100644 .dvc/.gitignore
+ create mode 100644 .dvc/config
+ create mode 100644 .dvcignore
+ create mode 100644 data/.gitignore
+ create mode 100644 data/Finall_Raw_data.csv.dvc
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>cd data
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1\data>dir
+ Volume in drive D is New Volume
+ Volume Serial Number is AAEC-73DF
+
+ Directory of D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1\data
+
+09-11-2021  08:05    <DIR>          .
+09-11-2021  08:05    <DIR>          ..
+09-11-2021  08:05                22 .gitignore
+09-11-2021  08:05         4,999,634 Finall_Raw_data.csv
+09-11-2021  08:05                94 Finall_Raw_data.csv.dvc
+               3 File(s)      4,999,750 bytes
+               2 Dir(s)  203,293,347,840 bytes free
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1\data>vi Finall_Raw_data.csv.dvc
+'vi' is not recognized as an internal or external command,
+operable program or batch file.
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1\data>cd ..
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>dvc remote add -d storag gdrive://1fTE7hiQLj69VtuWTsFKrpYibW3x5nXUx
+Setting 'storag' as a default remote.
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git commit .dvc/config -m "Configure remote storage"
+[master e9303de] Configure remote storage
+ 1 file changed, 4 insertions(+)
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>dvc push
+  0% Querying cache in gdrive://1fTE7hiQLj69VtuWTsFKrpYibW3x5nXUx|                                                                          |0/1 [00:00<?,     ?file/s]Go to the following link in your browser:
+
+    https://accounts.google.com/o/oauth2/auth?client_id=710796635688-iivsgbgsb6uv1fap6635dhvuei09o66c.apps.googleusercontent.com&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.appdata&access_type=offline&response_type=code&approval_prompt=force
+
+Enter verification code: 4/1AX4XfWg-qHvLGkzWZO8yhkDn3Re6t5Iw7mersZ_fYyCMmJOByMk_OByoQfs
+Authentication successful.
+1 file pushed
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>cat
+'cat' is not recognized as an internal or external command,
+operable program or batch file.
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>type data/.dvcignore
+The syntax of the command is incorrect.
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>del data/Finall_Raw_data.csv.dvc
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>dvc pul
+ERROR: argument COMMAND: invalid choice: 'pul' (choose from 'init', 'get', 'get-url', 'destroy', 'add', 'remove', 'move', 'unprotect', 'run', 'repro', 'pull', 'push', 'fetch', 'status', 'gc', 'import', 'import-url', 'config', 'checkout', 'remote', 'cache', 'metrics', 'params', 'install', 'root', 'list', 'ls', 'freeze', 'unfreeze', 'dag', 'daemon', 'commit', 'completion', 'diff', 'version', 'doctor', 'update', 'git-hook', 'plots', 'stage', 'experiments', 'exp', 'check-ignore', 'live', 'machine')
+usage: dvc [-q | -v] [-h] [-V] [--cd <path>] COMMAND ...
+
+Data Version Control
+
+optional arguments:
+  -q, --quiet        Be quiet.
+  -v, --verbose      Be verbose.
+  -h, --help         Show this help message and exit.
+  -V, --version      Show program's version.
+  --cd <path>        Change to directory before executing.
+
+Available Commands:
+  COMMAND            Use `dvc COMMAND --help` for command-specific help.
+    init             Initialize DVC in the current directory.
+    get              Download file or directory tracked by DVC or by Git.
+    get-url          Download or copy files from URL.
+    destroy          Remove DVC files, local DVC config and data cache.
+    add              Track data files or directories with DVC.
+    remove           Remove stages from dvc.yaml and/or stop tracking files or directories.
+    move             Rename or move a DVC controlled data file or a directory.
+    unprotect        Unprotect tracked files or directories (when hardlinks or symlinks have been enabled with `dvc config cache.type`).
+    run              Generate a dvc.yaml file from a command and execute the command.
+    repro            Reproduce complete or partial pipelines by executing their stages.
+    pull             Download tracked files or directories from remote storage.
+    push             Upload tracked files or directories to remote storage.
+    fetch            Download files or directories from remote storage to the cache.
+    status           Show changed stages, compare local cache and a remote storage.
+    gc               Garbage collect unused objects from cache or remote storage.
+    import           Download file or directory tracked by DVC or by Git into the workspace, and track it.
+    import-url       Download or copy file from URL and take it under DVC control.
+    config           Get or set config options.
+    checkout         Checkout data files from cache.
+    remote           Set up and manage data remotes.
+    cache            Manage cache settings.
+    metrics          Commands to display and compare metrics.
+    params           Commands to display params.
+    install          Install DVC git hooks into the repository.
+    root             Return the relative path to the root of the DVC project.
+    list (ls)        List repository contents, including files and directories tracked by DVC and by Git.
+    freeze           Freeze stages or .dvc files.
+    unfreeze         Unfreeze stages or .dvc files.
+    dag              Visualize DVC project DAG.
+    commit           Record changes to files or directories tracked by DVC by storing the current versions in the cache.
+    completion       Generate shell tab completion.
+    diff             Show added, modified, or deleted data between commits in the DVC repository, or between a commit and the workspace.
+    version (doctor)
+                     Display the DVC version and system/environment information.
+    update           Update data artifacts imported from other DVC repositories.
+    plots            Commands to visualize and compare plot metrics in structured files (JSON, YAML, CSV, TSV).
+    stage            Commands to list and create stages.
+    experiments (exp)
+                     Commands to run and compare experiments.
+    check-ignore     Check whether files or directories are excluded due to `.dvcignore`.
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>dvc pull
+Everything is up to date.
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>cat
+'cat' is not recognized as an internal or external command,
+operable program or batch file.
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>dir
+ Volume in drive D is New Volume
+ Volume Serial Number is AAEC-73DF
+
+ Directory of D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1
+
+09-11-2021  07:54    <DIR>          .
+09-11-2021  07:54    <DIR>          ..
+09-11-2021  08:05    <DIR>          .dvc
+09-11-2021  07:54               142 .dvcignore
+09-11-2021  08:05    <DIR>          data
+               1 File(s)            142 bytes
+               4 Dir(s)  203,287,781,376 bytes free
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>dvc add data/Finall_Raw_data.csv
+←[2K←[32m⠋←[0m Checking graph
+100% Adding...|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████|1/1 [00:03,  3.21s/file]
+
+To track the changes with git, run:
+
+        git add 'data\Finall_Raw_data.csv.dvc'
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git add 'data\Finall_Raw_data.csv.dvc'
+fatal: pathspec ''data\Finall_Raw_data.csv.dvc'' did not match any files
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git add data\Finall_Raw_data.csv.dvc
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git commit "Dataset updates"
+error: pathspec 'Dataset updates' did not match any file(s) known to git
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git commit -m "Dataset updates"
+[master 5c78ef9] Dataset updates
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>dvc push
+1 file pushed
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>dvc list
+ERROR: the following arguments are required: url
+usage: dvc list [-h] [-q | -v] [-R] [--dvc-only] [--json] [--rev [<commit>]] url [path]
+
+List repository contents, including files and directories tracked by DVC and by Git.
+Documentation: <https://man.dvc.org/list>
+
+positional arguments:
+  url                  Location of DVC repository to list
+  path                 Path to directory within the repository to list outputs for
+
+optional arguments:
+  -h, --help           show this help message and exit
+  -q, --quiet          Be quiet.
+  -v, --verbose        Be verbose.
+  -R, --recursive      Recursively list files.
+  --dvc-only           Show only DVC outputs.
+  --json, --show-json  Show output in JSON format.
+  --rev [<commit>]     Git revision (e.g. SHA, branch, tag)
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git log --commit
+fatal: unrecognized argument: --commit
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git log --online
+fatal: unrecognized argument: --online
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git log --oneline
+5c78ef9 (HEAD -> master) Dataset updates
+e9303de Configure remote storage
+ffc8bd1 Add new data
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git checkout HEAD^1 data/Finall_Raw_data.csv.dvc
+error: pathspec 'HEAD1' did not match any file(s) known to git
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git checkout data/Finall_Raw_data.csv.dvc
+Updated 0 paths from the index
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git checkout
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git checkout HEAD^1 data/Finall_Raw_data.csv.dvc
+error: pathspec 'HEAD1' did not match any file(s) known to git
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git checkout "HEAD^1" data/Finall_Raw_data.csv.dvc
+Updated 1 path from 7f60866
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>dvc checkout
+←[33mM←[0m       data\Finall_Raw_data.csv
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git commit data/Finall_Raw_data.csv.dvc -m "Revert Dataset updates"
+[master d50c467] Revert Dataset updates
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git checkout "HEAD^2" data/Finall_Raw_data.csv.dvc
+error: pathspec 'HEAD^2' did not match any file(s) known to git
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git checkout 5c78ef9 data/Finall_Raw_data.csv.dvc
+Updated 1 path from 74b396e
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git branch -M main
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git remote add origin https://github.com/Karthik-VG/mlops-dvc.git
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git push -u origin main
+Enumerating objects: 18, done.
+Counting objects: 100% (18/18), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (15/15), done.
+Writing objects: 100% (18/18), 1.65 KiB | 76.00 KiB/s, done.
+Total 18 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/Karthik-VG/mlops-dvc.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git log --oneline
+d50c467 (HEAD -> main, origin/main) Revert Dataset updates
+5c78ef9 Dataset updates
+e9303de Configure remote storage
+ffc8bd1 Add new data
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git checkout 5c78ef9 data/Finall_Raw_data.csv.dvc
+Updated 0 paths from 74b396e
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>git checkout e9303de data/Finall_Raw_data.csv.dvc
+Updated 1 path from 7f60866
+
+D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1>dir
+ Volume in drive D is New Volume
+ Volume Serial Number is AAEC-73DF
+
+ Directory of D:\ineuron\full stack\DVC MLOPS steps\DVC start\tut 1
+
+09-11-2021  07:54    <DIR>          .
+09-11-2021  07:54    <DIR>          ..
+09-11-2021  08:05    <DIR>          .dvc
+09-11-2021  07:54               142 .dvcignore
+09-11-2021  08:56    <DIR>          data
+               1 File(s)            142 bytes
+               4 Dir(s)  203,282,771,968 bytes free
